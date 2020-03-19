@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface TouristDao
 {
-    int insertTourist(UUID touristId, Tourist touristName);
+    int insertTourist(UUID touristId, Tourist tourist);
 
     default int insertTourist(Tourist tourist)
     {

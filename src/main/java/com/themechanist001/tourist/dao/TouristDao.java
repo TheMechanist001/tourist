@@ -12,15 +12,15 @@ public interface TouristDao
 
     default int insertTourist(Tourist tourist)
     {
-        UUID id = UUID.randomUUID();
-        return insertTourist(id, tourist);
+        UUID touristId = UUID.randomUUID();
+        return insertTourist(touristId, tourist);
     }
 
     List<Tourist> selectAllTourist();
 
-    Optional<Tourist> selectTouristById(UUID id);
+    Optional<Tourist> selectTouristById(UUID touristId);
 
-    int updateTouristById(UUID id, Tourist tourist);
+    int updateTouristById(UUID touristId, Tourist tourist);
 
-    int deleteTouristById(UUID id);
+    int deleteTouristById(UUID touristId);
 }

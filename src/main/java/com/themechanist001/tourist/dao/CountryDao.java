@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface CountryDao
 {
-    int insertCountry(UUID id, Country country);
+    int insertCountry(UUID countryId, Country country);
 
     default int insertCountry(Country country)
     {
@@ -18,9 +18,9 @@ public interface CountryDao
 
     List<Country> selectAllCountry();
 
-    Optional<Country> selectCountryById(UUID id);
+    Optional<Country> selectCountryById(UUID countryId);
 
-    int updateCountryById(UUID id, Country country);
+    int updateCountryById(UUID countryId, Country country);
 
-    int deleteCountryById(UUID id);
+    int deleteCountryById(UUID countryId);
 }

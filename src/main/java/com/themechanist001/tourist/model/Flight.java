@@ -7,12 +7,12 @@ import java.util.UUID;
 public class Flight
 {
     private final UUID flightId;
-    private final String flightNumber;
+    private final int flightNumber;
     private final String airline;
     private final String airlineContactName;
 
     public Flight(@JsonProperty("flightId") UUID flightId,
-                  @JsonProperty("flightNumber") String flightNumber,
+                  @JsonProperty("flightNumber") int flightNumber,
                   @JsonProperty("airline") String airline,
                   @JsonProperty("airlineContactName") String airlineContactName)
     {
@@ -27,7 +27,7 @@ public class Flight
         return flightId;
     }
 
-    public String getFlightNumber()
+    public int getFlightNumber()
     {
         return flightNumber;
     }

@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface FlightDao
 {
-    int insertFlight(UUID id, Flight flight);
+    int insertFlight(UUID flightId, Flight flight);
 
     default int insertFlight(Flight flight)
     {
@@ -18,9 +18,9 @@ public interface FlightDao
 
     List<Flight> selectAllFlight();
 
-    Optional<Flight> selectFlightById(UUID id);
+    Optional<Flight> selectFlightById(UUID flightId);
 
-    int updateFlightById(UUID id, Flight flight);
+    int updateFlightById(UUID flightId, Flight flight);
 
-    int deleteFlightById(UUID id);
+    int deleteFlightById(UUID flightId);
 }

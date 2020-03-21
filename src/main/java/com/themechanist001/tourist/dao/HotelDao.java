@@ -18,9 +18,9 @@ public interface HotelDao
 
     List<Hotel> selectAllHotel();
 
-    Optional<Hotel> selectHotelById(UUID id);
+    Optional<Hotel> selectHotelById(UUID hotelId);
 
-    int updateHotelById(UUID id, Hotel hotel);
+    int updateHotelById(UUID hotelId, Hotel hotel);
 
-    int deleteHotelById(UUID id);
+    int deleteHotelById(UUID hotelId);
 }

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository("postgres")
+@Repository("postgresFlight")
 public class FlightDataAccessService implements FlightDao
 {
     public final JdbcTemplate jdbcTemplate;

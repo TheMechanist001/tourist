@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository("postgres")
+@Repository("postgresCountry")
 public class CountryDataAccessService implements CountryDao
 {
     public final JdbcTemplate jdbcTemplate;

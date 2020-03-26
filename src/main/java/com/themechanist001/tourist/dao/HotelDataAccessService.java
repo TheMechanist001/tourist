@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@Repository("postgres")
+@Repository("postgresHotel")
 public class HotelDataAccessService implements HotelDao
 {
     public final JdbcTemplate jdbcTemplate;

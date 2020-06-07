@@ -21,7 +21,7 @@ public class FlightDataAccessService implements FlightDao
     @Override
     public int insertFlight(UUID flightId, Flight flight)
     {
-        final String sql = "INSERT INTO flight (flightId, flightNumber, airline, airlineContactNumber) VALUES (uuid_generate_v4(),?,?,?);";
+        final String sql = "INSERT INTO flight (flightId, flightNumber, airline, airlineContactName) VALUES (uuid_generate_v4(),?,?,?);";
         return jdbcTemplate.update(sql, flight.getFlightNumber(), flight.getAirline(), flight.getAirlineContactName());
     }
 
@@ -44,7 +44,7 @@ public class FlightDataAccessService implements FlightDao
     public Optional<Flight> selectFlightById(UUID flightId)
     {
         final String sql = "SELECT flightId, flightNumber, airline, airlineContactName FROM flight WHERE flightId = ?";
-        Flight flight = jdbcTemplate.query(sql, new Object[]{flightId},resultSet ->
+        Flight flight = jdbcTemplate.queryForObject(sql, new Object[]{flightId},(resultSet, i) ->
         {
             UUID id = UUID.fromString(resultSet.getString("flightId"));
             int flightNumber = resultSet.getInt("flightNumber");
@@ -59,7 +59,7 @@ public class FlightDataAccessService implements FlightDao
     public int updateFlightById(UUID flightId, Flight flight)
     {
         final String sql = "UPDATE flight SET flightNumber = ?, airline = ?, airlineContactName = ? WHERE flightId = ?";
-        return jdbcTemplate.update(sql, flightId);
+        return jdbcTemplate.update(sql, flight.getFlightNumber(), flight.getAirline(), flight.getAirlineContactName(), flightId);
     }
 
     @Override

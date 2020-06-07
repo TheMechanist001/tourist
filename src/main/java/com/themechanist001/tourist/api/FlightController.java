@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
-@RequestMapping("ap/v1/flight")
+@RequestMapping("api/v1/flight")
 @RestController
 public class FlightController
 {

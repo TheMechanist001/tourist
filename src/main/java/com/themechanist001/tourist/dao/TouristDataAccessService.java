@@ -30,7 +30,7 @@ public class TouristDataAccessService implements TouristDao
     @Override
     public List<Tourist> selectAllTourist()
     {
-        final String sql = "SELECT touristId, touristName, countryOfTravel, dateDeparture, dateArrival, flightNumber, hotelNumber FROM tourist";
+        final String sql = "SELECT touristId, touristName, countryOfTravel, dateDeparture, dateArrival, flightNumber, hotelName FROM tourist";
         List<Tourist> tourists = jdbcTemplate.query(sql, (resultSet, i) ->
         {
             UUID touristId = UUID.fromString(resultSet.getString("touristId"));
@@ -48,7 +48,7 @@ public class TouristDataAccessService implements TouristDao
     @Override
     public Optional<Tourist> selectTouristById(UUID touristId)
     {
-        final String sql = "SELECT touristId, touristName, countryOfTravel, dateDeparture, dateArrival, flightNumber, hotelNumber FROM tourist WHERE touristId = ?";
+        final String sql = "SELECT touristId, touristName, countryOfTravel, dateDeparture, dateArrival, flightNumber, hotelName FROM tourist WHERE touristId = ?";
         Tourist tourist = jdbcTemplate.queryForObject(sql, new Object[]{touristId}, ((resultSet, i) ->
         {
             UUID id = UUID.fromString(resultSet.getString("touristId"));
